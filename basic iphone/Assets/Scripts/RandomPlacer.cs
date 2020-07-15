@@ -7,7 +7,7 @@ public class RandomPlacer : PipeItemGenerator
 	public override void GenerateItems (Pipe pipe) 
     {
 		float angleStep = pipe.CurveAngle / pipe.CurveSegmentCount;
-		for (int i = 0; i < pipe.CurveSegmentCount; i++) 
+		for (int i = 0; i < pipe.CurveSegmentCount - 5; i++) 
         {
 			PipeItem item = Instantiate<PipeItem> (itemPrefabs[Random.Range(0, itemPrefabs.Length)]);
 

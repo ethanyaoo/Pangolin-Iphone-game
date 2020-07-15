@@ -4,42 +4,42 @@ using UnityEngine;
 
 public class FireProjectile : MonoBehaviour
 {
+
+    // Projectile Objects
 	public Rigidbody projectilePrefab;
 	public Transform barrelEnd;
-
-    private float firingDelay = 0f;
-
-    public float firingVelocity = 200f;
-    
-    public Transform rotationCenter;
-
     public Transform firingTarget;
 
-    public PipeSystem pipeSystem;
+    // Projectile Variables
+    private float firingDelayCounter; // Delay Count
+    public float firingDelay = 1f;
+    public int firingVelocity = 25;
+
+    private void Start() 
+    {
+        firingDelayCounter = firingDelay;
+    }
 
     // Issue with firing is that firingTarget appears outside of tunnel and 
     //  will occassionally cause issue of projectileInstance being launched outside
     void Update()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && firingDelayCounter <= 0f)
         {
-            print("FIRING " + firingDelay);
-            firingDelay -= Time.deltaTime;
 
-            if (firingDelay <= 0f)
+            if (firingDelayCounter <= 0f)
             {
-                firingDelay = 0.5f;
+                firingDelayCounter = firingDelay;
 
                 Rigidbody projectileInstance;
                 projectileInstance = Instantiate(projectilePrefab, barrelEnd.position, barrelEnd.rotation) as Rigidbody;
 
-                //projectileInstance.AddForce(pipeSystem.CurrPipe.transform.position * 15);
-                projectileInstance.AddForce(firingTarget.position * 10); 
+                projectileInstance.AddForce(firingTarget.position * -firingVelocity); 
             }
         }
         else
         {
-            firingDelay = 0f;
+            firingDelayCounter -= Time.deltaTime;
         }
     }
 }

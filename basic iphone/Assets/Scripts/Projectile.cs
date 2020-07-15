@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-        public Transform firingTarget;
+    public Transform firingTarget;
+
+    public ParticleSystem breakEffect;
 
     // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider collider)
     {
-        
+        collider.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+
+        Instantiate(breakEffect, collider.transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.localRotation = firingTarget.localRotation;
-        //transform.localPosition = firingTarget.localPosition;
     }
 }

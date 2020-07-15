@@ -2,7 +2,6 @@
 
 public class PipeItem : MonoBehaviour 
 {
-
 	private Transform rotater;
 
 	private void Awake () 

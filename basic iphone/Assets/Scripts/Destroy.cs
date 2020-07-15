@@ -6,15 +6,9 @@ public class Destroy : MonoBehaviour
 {
 	public GameObject other;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        Destroy(other, 0.5f);
+        Destroy(other, 0.35f);
     }
 }
