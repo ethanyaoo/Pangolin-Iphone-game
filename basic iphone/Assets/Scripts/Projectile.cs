@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-        public Transform firingTarget;
+    public Transform firingTarget;
 
     // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider collider)
     {
-        
+        collider.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.localRotation = firingTarget.localRotation;
-        //transform.localPosition = firingTarget.localPosition;
     }
 }

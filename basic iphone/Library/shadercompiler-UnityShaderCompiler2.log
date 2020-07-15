@@ -1,0 +1,35 @@
+Base path: /Applications/Unity/Hub/Editor/2018.4.19f1/Unity.app/Contents
+Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  api=14 insize=1326 outsize=1345 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=1309 outsize=1341 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=9814 outsize=3449 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 14 at Sort.compute(218): use of potentially uninitialized variable (GetKeyWithCheck)
+  api=14 insize=9814 outsize=5073 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 14 at Sort.compute(218): use of potentially uninitialized variable (GetKeyWithCheck)
+  api=14 insize=9814 outsize=5041 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=3525 outsize=6477 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=5073 outsize=9005 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=3537 outsize=2545 ok=1
+Cmd: compileComputeKernel
+  api=14 insize=1565 outsize=2449 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=2449 outsize=3433 ok=1
+Cmd: translateComputeKernel
+  api=14 insize=1337 outsize=1645 ok=1
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler

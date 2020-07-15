@@ -55,8 +55,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 57.932377, y: 27.490643, z: 57.12643}
-  m_Center: {x: 2.5069406, y: -7.78047, z: 7.223312}
+  m_Size: {x: 57.932377, y: 60.837532, z: 57.12643}
+  m_Center: {x: 2.5069418, y: 8.893019, z: 7.223312}
 --- !u!1 &3660712458618800911
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8277875141539332705}
   m_Layer: 0
-  m_Name: Rotator
+  m_Name: Rotater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

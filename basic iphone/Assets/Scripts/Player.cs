@@ -20,8 +20,7 @@ public class Player : MonoBehaviour
     private float avatarRotation;
     private Transform rotator;
     public Transform playerObject;
-    public Transform firingTarget;
-
+    
     // HUD Control
 
     public HUD hud; 
@@ -53,7 +52,7 @@ public class Player : MonoBehaviour
         pipeSystem.transform.localRotation = Quaternion.Euler(0f, 0f, systemRotation);
 
         //firingTarget.localRotation = Quaternion.Euler(0f, 0f, -(float)(delta));
-        firingTarget.localRotation = Quaternion.Euler(0f, 0f, systemRotation * Time.deltaTime);
+        //firingTarget.localRotation = Quaternion.Euler(0f, 0f, systemRotation * Time.deltaTime);
 
         UpdateAvatarRotation();
 

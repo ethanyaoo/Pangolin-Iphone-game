@@ -18,11 +18,6 @@ public class Spawn : MonoBehaviour
     	InvokeRepeating("SpawnObjects", 1, 1);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     void SpawnObjects()
     {
     	randomVal = Random.Range(0.0f, 100.0f);
