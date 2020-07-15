@@ -50,6 +50,12 @@ public class Player : MonoBehaviour
 
         pipeSystem.transform.localRotation = Quaternion.Euler(0f, 0f, systemRotation);
 
+<<<<<<< HEAD
+=======
+        //firingTarget.localRotation = Quaternion.Euler(0f, 0f, -(float)(delta));
+        //firingTarget.localRotation = Quaternion.Euler(0f, 0f, systemRotation * Time.deltaTime);
+
+>>>>>>> 65ab40b6c91b266d820b05d247595b7782c49ebc
         UpdateAvatarRotation();
 
         hud.SetValues(distanceTraveled);
