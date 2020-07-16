@@ -74,6 +74,9 @@
  <Reference Include="Unity.VectorGraphics">
  <HintPath>/Users/ethanyao/Documents/GitHub/Pangolin Iphone game/basic iphone/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.VisualEffectGraph.Runtime">
+ <HintPath>/Users/ethanyao/Documents/GitHub/Pangolin Iphone game/basic iphone/Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.InternalAPIEditorBridge.003">
  <HintPath>/Users/ethanyao/Documents/GitHub/Pangolin Iphone game/basic iphone/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
  </Reference>
@@ -89,17 +92,14 @@
  <Reference Include="Unity.VectorGraphics.Editor">
  <HintPath>/Users/ethanyao/Documents/GitHub/Pangolin Iphone game/basic iphone/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.VisualEffectGraph.Editor">
+ <HintPath>/Users/ethanyao/Documents/GitHub/Pangolin Iphone game/basic iphone/Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>/Users/ethanyao/Documents/GitHub/Pangolin Iphone game/basic iphone/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
  <HintPath>/Users/ethanyao/Documents/GitHub/Pangolin Iphone game/basic iphone/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VisualEffectGraph.Runtime">
- <HintPath>/Users/ethanyao/Documents/GitHub/Pangolin Iphone game/basic iphone/Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VisualEffectGraph.Editor">
- <HintPath>/Users/ethanyao/Documents/GitHub/Pangolin Iphone game/basic iphone/Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/Applications/Unity/Hub/Editor/2018.4.19f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
