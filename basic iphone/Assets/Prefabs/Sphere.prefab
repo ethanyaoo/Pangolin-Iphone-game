@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firingTarget: {fileID: 2098214787613243485, guid: 8fd38d8c0cd7344279b53ceb0eda6731,
     type: 3}
-  breakEffect: {fileID: 6511225612774722764, guid: 0aa80141dccb340f587c89e5de6aa321,
+  breakEffect: {fileID: 5568561782525516099, guid: 2a009c44c93964ade9da674fd0dcfcbe,
     type: 3}
 --- !u!65 &4048544437922748631
 BoxCollider:

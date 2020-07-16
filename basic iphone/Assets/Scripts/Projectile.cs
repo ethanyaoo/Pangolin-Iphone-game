@@ -6,25 +6,14 @@ public class Projectile : MonoBehaviour
 {
     public Transform firingTarget;
 
-    public ParticleSystem breakEffect;
-    ParticleSystem.MainModule breakMain;
-
-    private void Start() 
-    {
-        ParticleSystem.MainModule breakMain = breakEffect.main;
-    }
+    //public ParticleSystem breakEffect;
+    public GameObject breakEffect;
 
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider collider)
     {
         collider.gameObject.SetActive(false);
         gameObject.SetActive(false);
-
-        breakMain.startColor = new Color(
-                                            (float)Random.Range(0, 255),
-                                            (float)Random.Range(0, 255),
-                                            (float)Random.Range(0, 255)
-        );
 
         Instantiate(breakEffect, collider.transform.position, Quaternion.identity);
     }

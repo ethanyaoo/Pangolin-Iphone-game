@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\ProceduralMesh.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\RandomPlacer.cs" />
+     <Compile Include="Assets\Scripts\RockDestroy.cs" />
      <Compile Include="Assets\Scripts\ScoreCalculator.cs" />
      <Compile Include="Assets\Scripts\Spawn.cs" />
  <Reference Include="Unity.VectorGraphics">

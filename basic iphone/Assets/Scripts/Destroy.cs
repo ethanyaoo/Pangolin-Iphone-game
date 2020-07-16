@@ -9,6 +9,6 @@ public class Destroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(other, 0.35f);
+        Destroy(other, 1.0f);
     }
 }

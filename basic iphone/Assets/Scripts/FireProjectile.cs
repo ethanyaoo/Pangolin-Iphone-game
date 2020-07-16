@@ -15,9 +15,13 @@ public class FireProjectile : MonoBehaviour
     public float firingDelay = 1f;
     public int firingVelocity = 25;
 
+    // Audio Controls
+    private AudioSource audioSource;
     private void Start() 
     {
         firingDelayCounter = firingDelay;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Issue with firing is that firingTarget appears outside of tunnel and 
@@ -34,7 +38,10 @@ public class FireProjectile : MonoBehaviour
                 Rigidbody projectileInstance;
                 projectileInstance = Instantiate(projectilePrefab, barrelEnd.position, barrelEnd.rotation) as Rigidbody;
 
-                projectileInstance.AddForce(firingTarget.position * -firingVelocity); 
+                //projectileInstance.AddForce(firingTarget.position * firingVelocity); 
+                projectileInstance.AddForce(Vector3.right * firingVelocity);
+
+                audioSource.Play();
             }
         }
         else
