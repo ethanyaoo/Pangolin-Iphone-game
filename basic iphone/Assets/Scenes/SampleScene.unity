@@ -5286,11 +5286,7 @@ Transform:
   m_LocalPosition: {x: 1.35, y: -0.79, z: 0.024}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
-<<<<<<< HEAD
   - {fileID: 1045896178}
-=======
-  - {fileID: 340552626}
->>>>>>> 65ab40b6c91b266d820b05d247595b7782c49ebc
   - {fileID: 221404519}
   - {fileID: 58414404}
   m_Father: {fileID: 424763939}
@@ -5384,13 +5380,8 @@ MonoBehaviour:
     type: 3}
   barrelEnd: {fileID: 58414404}
   firingTarget: {fileID: 221404519}
-<<<<<<< HEAD
   firingDelay: 0.5
   firingVelocity: 40
-=======
-  firingDelay: 1
-  firingVelocity: 25
->>>>>>> 65ab40b6c91b266d820b05d247595b7782c49ebc
 --- !u!114 &774021920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5420,7 +5411,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
-<<<<<<< HEAD
 --- !u!4 &1045896178 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8561780274768699072, guid: 084d7dff6d19245f6b3a8ac76f07b2f6,
@@ -5496,8 +5486,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 084d7dff6d19245f6b3a8ac76f07b2f6, type: 3}
-=======
->>>>>>> 65ab40b6c91b266d820b05d247595b7782c49ebc
 --- !u!1 &1283244077
 GameObject:
   m_ObjectHideFlags: 0
@@ -5971,29 +5959,17 @@ PrefabInstance:
     - target: {fileID: 2098214787613243485, guid: 8fd38d8c0cd7344279b53ceb0eda6731,
         type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: 0
-=======
-      value: -18.9
->>>>>>> 65ab40b6c91b266d820b05d247595b7782c49ebc
       objectReference: {fileID: 0}
     - target: {fileID: 2098214787613243485, guid: 8fd38d8c0cd7344279b53ceb0eda6731,
         type: 3}
       propertyPath: m_LocalPosition.y
-<<<<<<< HEAD
       value: 0
-=======
-      value: 0.6
->>>>>>> 65ab40b6c91b266d820b05d247595b7782c49ebc
       objectReference: {fileID: 0}
     - target: {fileID: 2098214787613243485, guid: 8fd38d8c0cd7344279b53ceb0eda6731,
         type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< HEAD
       value: 0
-=======
-      value: 1.7
->>>>>>> 65ab40b6c91b266d820b05d247595b7782c49ebc
       objectReference: {fileID: 0}
     - target: {fileID: 2098214787613243485, guid: 8fd38d8c0cd7344279b53ceb0eda6731,
         type: 3}

@@ -138,11 +138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firingTarget: {fileID: 2098214787613243485, guid: 8fd38d8c0cd7344279b53ceb0eda6731,
     type: 3}
-<<<<<<< HEAD
   breakEffect: {fileID: 6511225612774722764, guid: 0aa80141dccb340f587c89e5de6aa321,
     type: 3}
-=======
->>>>>>> 65ab40b6c91b266d820b05d247595b7782c49ebc
 --- !u!65 &4048544437922748631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -154,10 +151,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-<<<<<<< HEAD
   m_Size: {x: 1, y: 0.8295841, z: 0.9860153}
   m_Center: {x: 0, y: -0.06009531, z: 0.00699234}
-=======
-  m_Size: {x: 1, y: 2.5116615, z: 1}
-  m_Center: {x: 0, y: -0.901134, z: 0}
->>>>>>> 65ab40b6c91b266d820b05d247595b7782c49ebc
