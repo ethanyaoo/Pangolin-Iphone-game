@@ -16,9 +16,15 @@ public class Avatar : MonoBehaviour
     private void OnTriggerEnter(Collider collider) 
     {
         print("COLLISION");
-        if (deathCountdown < 0f)
+        if (collider.tag == "Unbreakable" && deathCountdown < 0f)
         {
             deathCountdown = 1.0f;
+        }
+        else if (collider.tag == "PowerUp")
+        {
+            collider.gameObject.SetActive(false);
+
+            player.powerUpUsage();
         }
     }
 

@@ -12,10 +12,14 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider collider)
     {
-        collider.gameObject.SetActive(false);
         gameObject.SetActive(false);
 
-        Instantiate(breakEffect, collider.transform.position, Quaternion.identity);
+        if (collider.tag == "Collisions")
+        {
+            collider.gameObject.SetActive(false);
+
+            Instantiate(breakEffect, collider.transform.position, Quaternion.identity);
+        }
     }
 
     // Update is called once per frame

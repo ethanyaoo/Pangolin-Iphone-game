@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 5670662108550396161}
   m_Layer: 0
   m_Name: MediumRock
-  m_TagString: Untagged
+  m_TagString: Unbreakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,6 +169,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock 01 prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4249834680638987886, guid: 13ead01e333bb46448ab29474ec31af4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Unbreakable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ead01e333bb46448ab29474ec31af4, type: 3}

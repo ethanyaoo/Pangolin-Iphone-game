@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     
     // HUD Control
     public HUD hud; 
+    private float timeTraveled;
     
     private void Start() 
     {
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
     {
         float delta = velocity * Time.deltaTime;
         distanceTraveled += delta;
+        timeTraveled += Time.deltaTime;
         systemRotation += delta * deltaToRotation;
 
         if (systemRotation >= currentPipe.CurveAngle)
@@ -52,7 +54,7 @@ public class Player : MonoBehaviour
 
         UpdateAvatarRotation();
 
-        hud.SetValues(distanceTraveled);
+        hud.SetValues(timeTraveled);
     }
 
     // Rotates whole tunnel
@@ -94,5 +96,10 @@ public class Player : MonoBehaviour
     public void Die() 
     {
         gameObject.SetActive(false);
+    }
+
+    public void powerUpUsage()
+    {
+        timeTraveled -= 3.0f;
     }
 }
