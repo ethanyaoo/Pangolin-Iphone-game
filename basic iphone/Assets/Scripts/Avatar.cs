@@ -33,18 +33,25 @@ public class Avatar : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider) 
     {
-        if (collider.tag == "Unbreakable" && deathCountdown < 0f && healthCounter.healthCounter > 1)
+        if (collider.tag == "Unbreakable" && deathCountdown < 0f)
         {
-            extraPointsDict.Clear();
-            extraPointsDict.Add("Termites", termitesCount);
-            extraPointsDict.Add("Ants", antsCount);
-            extraPointsDict.Add("Larva", larvaCount);
+            if (healthCounter.healthCounter == 1 && healthCounter.shieldCounter == 0)
+            {
+                extraPointsDict.Clear();
+                extraPointsDict.Add("Termites", termitesCount);
+                extraPointsDict.Add("Ants", antsCount);
+                extraPointsDict.Add("Larva", larvaCount);
 
-            pangolinObject.gameObject.SetActive(false);
+                pangolinObject.gameObject.SetActive(false);
 
-            Instantiate(playerEffect, transform.position, Quaternion.identity);
+                Instantiate(playerEffect, transform.position, Quaternion.identity);
 
-            deathCountdown = 0.5f;
+                deathCountdown = 0.5f;
+            }
+            else
+            {
+                healthCounter.takeDamage();
+            }
         }
         else if (collider.tag == "Termites" || collider.tag == "Ants" || collider.tag == "Larva")
         {
@@ -58,12 +65,14 @@ public class Avatar : MonoBehaviour
             switch(collider.tag)
             {
                 case "Termites":
+                    healthCounter.gainHealth();
                     termitesCount += 1.0f;
                     break;
                 case "Ants":
                     antsCount += 1.0f;
                     break;
                 case "Larva":
+                    healthCounter.gainShield();
                     larvaCount += 1.0f;
                     break;
             }
