@@ -8,10 +8,10 @@ public class HUD : MonoBehaviour
 
     public Text displayDistance;
 
-    public void SetValues(float timeTraveled)
+    public void SetValues(float distanceTraveled)
     {
         //displayDistance.text = ((int)(distanceTraveled * 1f)).ToString();
 
-        displayDistance.text = ((float)(timeTraveled * 1f)).ToString();
+        displayDistance.text = ((float)(distanceTraveled * 1f)).ToString();
     }
 }

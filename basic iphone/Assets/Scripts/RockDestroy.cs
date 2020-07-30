@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class RockDestroy : MonoBehaviour
 {
-    public ParticleSystem particleSystem;
+    public ParticleSystem ps;
 
     public float timeDestroy = 1f;
 
     private void Start() 
     {
         //ParticleSystem particleSystem = GetComponent<ParticleSystem>();
-        var main = particleSystem.main;
+        var main = ps.main;
 
         // main.startColor = new ParticleSystem.MinMaxGradient(new Color(
         //                                                 (float)Random.Range(0, 255),

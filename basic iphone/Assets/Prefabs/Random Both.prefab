@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefabs:
-  - {fileID: 11462984, guid: ff374c4536d5b45a6974b739b162fc3e, type: 3}
-  - {fileID: 6110808986497736936, guid: bfad5303fa5be48e3ac86ad8f0374c67, type: 3}
-  - {fileID: 1568815203507079648, guid: e1c6c3bb50bc047e6acb24acfc5351ad, type: 3}
+  - {fileID: 7185732377734146227, guid: 5b9842d4eb28b4082b5f38e5a38978a5, type: 3}
+  - {fileID: 1342161861462857144, guid: e586b80592cd64478b62ff813f9d1c34, type: 3}
+  - {fileID: 6364064223899440804, guid: 689ce619d3ecf40a5b9d5e08d2829a5a, type: 3}
+  - {fileID: 2825652983203612745, guid: 47b432f33df5f4e2ba93543694b4c12a, type: 3}
+  - {fileID: 6294258963159747645, guid: a9a3a02b2d23146648361bfc8511be1d, type: 3}
+  - {fileID: 7604273158051995945, guid: 5c2bf698670114672b0813244cf38208, type: 3}
+  - {fileID: 5917391514224521479, guid: b10e50ba440c24757844cceec1f6297f, type: 3}

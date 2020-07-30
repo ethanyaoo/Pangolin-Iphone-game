@@ -1,0 +1,290 @@
+fileFormatVersion: 2
+guid: e6ee22b57e82b459a9ef68f63d920d6b
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Ant
+    100002: Ant Body
+    100004: Ant Legs 01
+    100006: Ant Legs 02
+    100008: Ant Legs 03
+    100010: Larva
+    100012: Larva Ring 001
+    100014: Larva Ring 002
+    100016: Larva Ring 003
+    100018: Larva Ring 004
+    100020: Larva Ring 005
+    100022: Larva Ring 006
+    100024: Larva Ring 007
+    100026: Larva Ring 008
+    100028: Line001
+    100030: Line002
+    100032: Pangolin
+    100034: //RootNode
+    100036: Pangolin 1
+    100038: Pangolin Footsteps
+    100040: Pangolin Head
+    100042: Pangolin HeadNub
+    100044: Pangolin L Calf
+    100046: Pangolin L Clavicle
+    100048: Pangolin L Finger0
+    100050: Pangolin L Finger0Nub
+    100052: Pangolin L Foot
+    100054: Pangolin L Forearm
+    100056: Pangolin L Hand
+    100058: Pangolin L Thigh
+    100060: Pangolin L Toe0
+    100062: Pangolin L Toe0Nub
+    100064: Pangolin L UpperArm
+    100066: Pangolin Neck
+    100068: Pangolin Pelvis
+    100070: Pangolin R Calf
+    100072: Pangolin R Clavicle
+    100074: Pangolin R Finger0
+    100076: Pangolin R Finger0Nub
+    100078: Pangolin R Foot
+    100080: Pangolin R Forearm
+    100082: Pangolin R Hand
+    100084: Pangolin R Thigh
+    100086: Pangolin R Toe0
+    100088: Pangolin R Toe0Nub
+    100090: Pangolin R UpperArm
+    100092: Pangolin Root
+    100094: Pangolin Spine
+    100096: Pangolin Spine1
+    100098: Pangolin Tail
+    100100: Pangolin Tail1
+    100102: Pangolin Tail2
+    100104: Pangolin Tail3
+    100106: Pangolin TailNub
+    100108: Rock 001
+    100110: Rock 002
+    100112: Rock 003
+    100114: Sphere004
+    100116: Termite
+    100118: Termite Body
+    100120: Termite Legs 001
+    100122: Termite Legs 002
+    100124: Termite Legs 003
+    400000: Ant
+    400002: Ant Body
+    400004: Ant Legs 01
+    400006: Ant Legs 02
+    400008: Ant Legs 03
+    400010: Larva
+    400012: Larva Ring 001
+    400014: Larva Ring 002
+    400016: Larva Ring 003
+    400018: Larva Ring 004
+    400020: Larva Ring 005
+    400022: Larva Ring 006
+    400024: Larva Ring 007
+    400026: Larva Ring 008
+    400028: Line001
+    400030: Line002
+    400032: Pangolin
+    400034: //RootNode
+    400036: Pangolin 1
+    400038: Pangolin Footsteps
+    400040: Pangolin Head
+    400042: Pangolin HeadNub
+    400044: Pangolin L Calf
+    400046: Pangolin L Clavicle
+    400048: Pangolin L Finger0
+    400050: Pangolin L Finger0Nub
+    400052: Pangolin L Foot
+    400054: Pangolin L Forearm
+    400056: Pangolin L Hand
+    400058: Pangolin L Thigh
+    400060: Pangolin L Toe0
+    400062: Pangolin L Toe0Nub
+    400064: Pangolin L UpperArm
+    400066: Pangolin Neck
+    400068: Pangolin Pelvis
+    400070: Pangolin R Calf
+    400072: Pangolin R Clavicle
+    400074: Pangolin R Finger0
+    400076: Pangolin R Finger0Nub
+    400078: Pangolin R Foot
+    400080: Pangolin R Forearm
+    400082: Pangolin R Hand
+    400084: Pangolin R Thigh
+    400086: Pangolin R Toe0
+    400088: Pangolin R Toe0Nub
+    400090: Pangolin R UpperArm
+    400092: Pangolin Root
+    400094: Pangolin Spine
+    400096: Pangolin Spine1
+    400098: Pangolin Tail
+    400100: Pangolin Tail1
+    400102: Pangolin Tail2
+    400104: Pangolin Tail3
+    400106: Pangolin TailNub
+    400108: Rock 001
+    400110: Rock 002
+    400112: Rock 003
+    400114: Sphere004
+    400116: Termite
+    400118: Termite Body
+    400120: Termite Legs 001
+    400122: Termite Legs 002
+    400124: Termite Legs 003
+    2100000: 01 - Default
+    2100002: No Name
+    2100004: Rock
+    2100006: Ant
+    2100008: Termite2
+    2100010: Termite
+    2100012: Larva
+    2300000: Ant Body
+    2300002: Ant Legs 01
+    2300004: Ant Legs 02
+    2300006: Ant Legs 03
+    2300008: Larva Ring 001
+    2300010: Larva Ring 002
+    2300012: Larva Ring 003
+    2300014: Larva Ring 004
+    2300016: Larva Ring 005
+    2300018: Larva Ring 006
+    2300020: Larva Ring 007
+    2300022: Larva Ring 008
+    2300024: Line002
+    2300026: Rock 001
+    2300028: Rock 002
+    2300030: Rock 003
+    2300032: Sphere004
+    2300034: Termite Body
+    2300036: Termite Legs 001
+    2300038: Termite Legs 002
+    2300040: Termite Legs 003
+    3300000: Ant Body
+    3300002: Ant Legs 01
+    3300004: Ant Legs 02
+    3300006: Ant Legs 03
+    3300008: Larva Ring 001
+    3300010: Larva Ring 002
+    3300012: Larva Ring 003
+    3300014: Larva Ring 004
+    3300016: Larva Ring 005
+    3300018: Larva Ring 006
+    3300020: Larva Ring 007
+    3300022: Larva Ring 008
+    3300024: Line002
+    3300026: Rock 001
+    3300028: Rock 002
+    3300030: Rock 003
+    3300032: Sphere004
+    3300034: Termite Body
+    3300036: Termite Legs 001
+    3300038: Termite Legs 002
+    3300040: Termite Legs 003
+    4300000: Pangolin
+    4300002: Line002
+    4300004: Rock 001
+    4300006: Rock 002
+    4300008: Rock 003
+    4300010: Sphere004
+    4300012: Ant Legs 01
+    4300014: Ant Legs 03
+    4300016: Ant Legs 02
+    4300018: Ant Body
+    4300020: Termite Body
+    4300022: Termite Legs 001
+    4300024: Termite Legs 002
+    4300026: Termite Legs 003
+    4300028: Larva Ring 002
+    4300030: Larva Ring 003
+    4300032: Larva Ring 004
+    4300034: Larva Ring 005
+    4300036: Larva Ring 006
+    4300038: Larva Ring 007
+    4300040: Larva Ring 008
+    4300042: Larva Ring 001
+    9500000: //RootNode
+    13700000: Pangolin
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

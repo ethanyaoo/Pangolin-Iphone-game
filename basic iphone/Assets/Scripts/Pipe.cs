@@ -51,8 +51,11 @@ public class Pipe : MonoBehaviour
         {
             Destroy(transform.GetChild(i).gameObject);
         }
-
-        generators[Random.Range(0, generators.Length)].GenerateItems(this);
+		
+		if (withItems)
+		{
+			generators[Random.Range(0, generators.Length)].GenerateItems(this);
+		}
     }
 
 	private void SetUV()

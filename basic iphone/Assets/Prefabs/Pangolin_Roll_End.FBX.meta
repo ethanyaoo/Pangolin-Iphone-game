@@ -1,0 +1,158 @@
+fileFormatVersion: 2
+guid: f82371c3f45a449f284c61666b3e9b6d
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Pangolin
+    100002: Pangolin 1
+    100004: Pangolin Head
+    100006: Pangolin L Calf
+    100008: Pangolin L Clavicle
+    100010: Pangolin L Finger0
+    100012: Pangolin L Foot
+    100014: Pangolin L Forearm
+    100016: Pangolin L Hand
+    100018: Pangolin L Thigh
+    100020: Pangolin L Toe0
+    100022: Pangolin L UpperArm
+    100024: Pangolin Neck
+    100026: Pangolin Pelvis
+    100028: Pangolin R Calf
+    100030: Pangolin R Clavicle
+    100032: Pangolin R Finger0
+    100034: Pangolin R Foot
+    100036: Pangolin R Forearm
+    100038: Pangolin R Hand
+    100040: Pangolin R Thigh
+    100042: Pangolin R Toe0
+    100044: Pangolin R UpperArm
+    100046: Pangolin Root
+    100048: Pangolin Spine
+    100050: Pangolin Spine1
+    100052: Pangolin Tail
+    100054: Pangolin Tail1
+    100056: Pangolin Tail2
+    100058: Pangolin Tail3
+    100060: //RootNode
+    400000: Pangolin
+    400002: Pangolin 1
+    400004: Pangolin Head
+    400006: Pangolin L Calf
+    400008: Pangolin L Clavicle
+    400010: Pangolin L Finger0
+    400012: Pangolin L Foot
+    400014: Pangolin L Forearm
+    400016: Pangolin L Hand
+    400018: Pangolin L Thigh
+    400020: Pangolin L Toe0
+    400022: Pangolin L UpperArm
+    400024: Pangolin Neck
+    400026: Pangolin Pelvis
+    400028: Pangolin R Calf
+    400030: Pangolin R Clavicle
+    400032: Pangolin R Finger0
+    400034: Pangolin R Foot
+    400036: Pangolin R Forearm
+    400038: Pangolin R Hand
+    400040: Pangolin R Thigh
+    400042: Pangolin R Toe0
+    400044: Pangolin R UpperArm
+    400046: Pangolin Root
+    400048: Pangolin Spine
+    400050: Pangolin Spine1
+    400052: Pangolin Tail
+    400054: Pangolin Tail1
+    400056: Pangolin Tail2
+    400058: Pangolin Tail3
+    400060: //RootNode
+    2100000: 01 - Default
+    4300000: Pangolin
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Pangolin
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

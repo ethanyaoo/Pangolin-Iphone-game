@@ -5,9 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PipeSystem pipeSystem;
-    public float velocity;
     private Pipe currentPipe;
 
+    // Pipe/Player Vars
+    public float velocity;
     private float distanceTraveled = 0f;
     private float deltaToRotation;
     private float systemRotation;
@@ -16,23 +17,35 @@ public class Player : MonoBehaviour
     private float worldRotation;
 
     // Player Controls
+    public GameObject pangolinGameObject;
     public float rotationVelocity;
     private float avatarRotation;
     private Transform rotator;
-    public Transform playerObject;
-    
+
     // HUD Control
     public HUD hud; 
+    public MainMenu mainMenu;
     private float timeTraveled;
-    
-    private void Start() 
+
+    public void gameStart()
     {
-        world = pipeSystem.transform.parent;
-        rotator = transform.GetChild(0);
+        distanceTraveled = 0.0f;
+        avatarRotation = 0.0f;
+        systemRotation = 0.0f;
+        worldRotation = 0.0f;
         currentPipe = pipeSystem.SetupFirstPipe();
         SetupCurrentPipe();
 
-        hud.SetValues(distanceTraveled);
+        pangolinGameObject.gameObject.SetActive(true);
+        gameObject.SetActive(true);
+    }
+
+    private void Awake() 
+    {
+        world = pipeSystem.transform.parent;
+        rotator = transform.GetChild(0);
+
+        gameObject.SetActive(false);
     }
 
     private void Update() 
@@ -54,7 +67,7 @@ public class Player : MonoBehaviour
 
         UpdateAvatarRotation();
 
-        hud.SetValues(timeTraveled);
+        hud.SetValues(distanceTraveled);
     }
 
     // Rotates whole tunnel
@@ -88,13 +101,11 @@ public class Player : MonoBehaviour
             worldRotation -= 360f;
         }
         world.localRotation = Quaternion.Euler(worldRotation, 0f, 0f);
-
-        // Rotate player object like pipe system
-        playerObject.transform.localRotation = Quaternion.Euler(worldRotation, 0f, 0f);
     }
 
-    public void Die() 
+    public void Die(Dictionary<string, float> extraPointsDict) 
     {
+        mainMenu.endGame(distanceTraveled, extraPointsDict);
         gameObject.SetActive(false);
     }
 

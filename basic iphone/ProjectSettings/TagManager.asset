@@ -9,6 +9,9 @@ TagManager:
   - Collisions
   - Unbreakable
   - PowerUp
+  - Ants
+  - Larva
+  - Termites
   layers:
   - Default
   - TransparentFX

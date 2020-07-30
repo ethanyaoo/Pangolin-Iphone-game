@@ -15,17 +15,12 @@ public class FireProjectile : MonoBehaviour
     public float firingDelay = 1f;
     public int firingVelocity = 25;
 
-    // Audio Controls
-    private AudioSource audioSource;
     private void Start() 
     {
         firingDelayCounter = firingDelay;
 
-        audioSource = GetComponent<AudioSource>();
     }
 
-    // Issue with firing is that firingTarget appears outside of tunnel and 
-    //  will occassionally cause issue of projectileInstance being launched outside
     void Update()
     {
         if (Input.touchCount > 0 && firingDelayCounter <= 0f)
@@ -41,7 +36,6 @@ public class FireProjectile : MonoBehaviour
                 //projectileInstance.AddForce(firingTarget.position * firingVelocity); 
                 projectileInstance.AddForce(Vector3.right * firingVelocity);
 
-                audioSource.Play();
             }
         }
         else
