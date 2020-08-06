@@ -10,8 +10,8 @@ public class MainMenu : MonoBehaviour
     public Text extraPointsText;
     public HUD hud;
     private float endTotalScore = -1;
-    private float goalScore, antScore, termiteScore;
-    public float antMultiplier, termiteMultiplier, larvaMultiplier;
+    private float goalScore, antScore, termiteScore, larvaScore;
+    public float antMultiplier, termiteMultiplier, larvaMultiplier, nearMissMult;
     private float scoreTimer = -1.0f;
     public static Dictionary<string, float> pointsDict = new Dictionary<string, float>();
 
@@ -32,28 +32,35 @@ public class MainMenu : MonoBehaviour
 
     public void endGame(float distanceTraveled, Dictionary<string, float> extraPointsDict)
     {
-        extraPointsText.text = "Ants Collected: " + ((int)(extraPointsDict["Ants"] * 1.0f)).ToString();
         extraPointsText.gameObject.SetActive(true);
         pointsDict = extraPointsDict;
 
-        scoreTimer = 3.0f;
+        scoreTimer = 2.25f;
 
         scoreCount.text = ((int)(distanceTraveled * 1.0f)).ToString();
-        endTotalScore = distanceTraveled * 1.0f;
-        goalScore = endTotalScore + (float)(extraPointsDict["Ants"] * 50.0f) 
-                                    + (float)(extraPointsDict["Termites"] * 50.0f)
-                                        + (float)(extraPointsDict["Larva"] * 50.0f);
 
-        antScore = endTotalScore + (float)(extraPointsDict["Ants"] * 50.0f);
-        termiteScore = endTotalScore + (float)(extraPointsDict["Ants"] * 50.0f)
-                                        + (float)(extraPointsDict["Termites"] * 50.0f);
+        endTotalScore = distanceTraveled * 1.0f;
+
+        goalScore = endTotalScore + (float)(extraPointsDict["Ants"] * antMultiplier) 
+                                    + (float)(extraPointsDict["Termites"] * termiteMultiplier)
+                                        + (float)(extraPointsDict["Larva"] * larvaMultiplier)
+                                            + (float)(pointsDict["Close"] * nearMissMult);
+
+        larvaScore = endTotalScore + (float)(extraPointsDict["Ants"] * antMultiplier) 
+                                    + (float)(extraPointsDict["Termites"] * termiteMultiplier)
+                                        + (float)(extraPointsDict["Larva"] * larvaMultiplier);
+
+        antScore = endTotalScore + (float)(extraPointsDict["Ants"] * antMultiplier);
+
+        termiteScore = endTotalScore + (float)(extraPointsDict["Ants"] * antMultiplier)
+                                        + (float)(extraPointsDict["Termites"] * termiteMultiplier);
 
         hud.gameObject.SetActive(false);
         gameObject.SetActive(true);
     }
 
     // Used as a timer to give the game ui effect of the text appearing one after another
-    private void FixedUpdate() 
+    private void Update() 
     {
         if (endTotalScore > 0)
         {
@@ -64,23 +71,16 @@ public class MainMenu : MonoBehaviour
                 endTotalScore = goalScore;
                 scoreTimer = -0.5f;
             }
-            else if (endTotalScore < goalScore && scoreTimer <= 0.0f)
+            else if (endTotalScore < antScore)
             {
-                endTotalScore += 5.0f;
-            }
-            else if (scoreTimer <= 1.0f)
-            {
-                extraPointsText.text = "Ants Collected: " + ((int)(pointsDict["Ants"] * 1.0f)).ToString()
-                        + "\n\n" + "Termites Collected: " + ((int)(pointsDict["Termites"] * 1.0f)).ToString() 
-                        + "\n\n" + "Larva Collected: " + ((int)(pointsDict["Larva"] * 1.0f)).ToString();
+                extraPointsText.text = "Ants Collected: " + ((int)(pointsDict["Ants"] * 1.0f)).ToString();
 
-                if (endTotalScore < goalScore)
+                if (endTotalScore < antScore)
                 {
                     endTotalScore += 5.0f;
                 }
-
             }
-            else if (scoreTimer <= 2.0f)
+            else if (endTotalScore < termiteScore)
             {
                 extraPointsText.text = "Ants Collected: " + ((int)(pointsDict["Ants"] * 1.0f)).ToString()
                     + "\n\n" + "Termites Collected: " + ((int)(pointsDict["Termites"] * 1.0f)).ToString();
@@ -90,12 +90,25 @@ public class MainMenu : MonoBehaviour
                     endTotalScore += 5.0f;
                 }
             }
-            else
+            else if (endTotalScore < larvaScore)
             {
-                if (endTotalScore < antScore)
+                extraPointsText.text = "Ants Collected: " + ((int)(pointsDict["Ants"] * 1.0f)).ToString()
+                        + "\n\n" + "Termites Collected: " + ((int)(pointsDict["Termites"] * 1.0f)).ToString() 
+                        + "\n\n" + "Larva Collected: " + ((int)(pointsDict["Larva"] * 1.0f)).ToString();
+
+                if (endTotalScore < goalScore)
                 {
                     endTotalScore += 5.0f;
                 }
+            }
+            else if (endTotalScore <= goalScore)
+            {
+                if (endTotalScore != goalScore) endTotalScore += 5.0f;
+
+                extraPointsText.text = "Ants Collected: " + ((int)(pointsDict["Ants"] * 1.0f)).ToString()
+                        + "\n\n" + "Termites Collected: " + ((int)(pointsDict["Termites"] * 1.0f)).ToString() 
+                        + "\n\n" + "Larva Collected: " + ((int)(pointsDict["Larva"] * 1.0f)).ToString()
+                        + "\n\n" + "Close Dodge Points: " + ((int)(pointsDict["Close"] * 1.0f)).ToString();
             }
 
             scoreCount.text = ((int)(endTotalScore)).ToString();

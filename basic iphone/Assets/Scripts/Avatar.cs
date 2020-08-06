@@ -18,44 +18,63 @@ public class Avatar : MonoBehaviour
     private float antsCount = 0.0f;
     private float termitesCount = 0.0f;
     private float larvaCount = 0.0f;
+    private float closeScore = 0.0f;
 
     // Assignable Point Values for Powerups
-    public float antPointScore = 100.0f;
-    public float termitePointScore = 100.0f;
-    public float larvaPointScore = 100.0f;
     public static Dictionary<string, float> extraPointsDict = new Dictionary<string, float>();
+
+    // Collision detectors
+
+    private enum avatar {none, close, collide};
+    private avatar currBehavior = 0;
 
     private void Awake() 
     {
         player = transform.root.GetComponent<Player>();
 
     }
+    
+    private void OnTriggerExit(Collider collider) 
+    {
+        currBehavior = 0;
+    }
 
     private void OnTriggerEnter(Collider collider) 
     {
+        currBehavior++;
+
         if (collider.tag == "Unbreakable" && deathCountdown < 0f)
         {
-            if (healthCounter.healthCounter == 1 && healthCounter.shieldCounter == 0)
+            if (currBehavior == avatar.close)
             {
-                extraPointsDict.Clear();
-                extraPointsDict.Add("Termites", termitesCount);
-                extraPointsDict.Add("Ants", antsCount);
-                extraPointsDict.Add("Larva", larvaCount);
-
-                pangolinObject.gameObject.SetActive(false);
-
-                Instantiate(playerEffect, transform.position, Quaternion.identity);
-
-                deathCountdown = 0.5f;
+                closeScore++;
             }
-            else
+            else if (currBehavior == avatar.collide)
             {
-                healthCounter.takeDamage();
+                if (closeScore > 0) closeScore--;
+
+                if (healthCounter.healthCounter == 1 && healthCounter.shieldCounter == 0)
+                {
+                    extraPointsDict.Clear();
+                    extraPointsDict.Add("Termites", termitesCount);
+                    extraPointsDict.Add("Ants", antsCount);
+                    extraPointsDict.Add("Larva", larvaCount);
+                    extraPointsDict.Add("Close", closeScore);
+
+                    pangolinObject.gameObject.SetActive(false);
+
+                    Instantiate(playerEffect, transform.position, Quaternion.identity);
+
+                    deathCountdown = 0.5f;
+                }
+                else
+                {
+                    healthCounter.takeDamage();
+                }
             }
         }
-        else if (collider.tag == "Termites" || collider.tag == "Ants" || collider.tag == "Larva")
+        else if ((collider.tag == "Termites" || collider.tag == "Ants" || collider.tag == "Larva") && currBehavior == avatar.collide)
         {
-            print("COllISION");
             collider.gameObject.SetActive(false);
 
             Instantiate(breakEffect, collider.transform.position, Quaternion.identity);
@@ -76,6 +95,8 @@ public class Avatar : MonoBehaviour
                     larvaCount += 1.0f;
                     break;
             }
+
+            currBehavior = 0;
         }
     }
 

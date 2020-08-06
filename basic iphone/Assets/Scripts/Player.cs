@@ -25,10 +25,14 @@ public class Player : MonoBehaviour
     // HUD Control
     public HUD hud; 
     public MainMenu mainMenu;
+    public HealthCounter healthCounter;
     private float timeTraveled;
 
     public void gameStart()
-    {
+    {        
+        healthCounter.healthCounter = 3;
+        healthCounter.shieldCounter = 1;
+
         distanceTraveled = 0.0f;
         avatarRotation = 0.0f;
         systemRotation = 0.0f;

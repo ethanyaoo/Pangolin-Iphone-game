@@ -21,7 +21,6 @@ public class HealthCounter : MonoBehaviour
 
     public void takeDamage()
     {  
-        print("TAKE DAMAGE");
         if (shieldCounter > 0)
         {
             shieldCounter--;

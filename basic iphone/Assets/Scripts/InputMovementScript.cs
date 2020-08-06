@@ -16,6 +16,7 @@ public class InputMovementScript : MonoBehaviour
 	private const float doubleClickTime = 0.2f;
 	private float lastClickTime;
 	private bool jump = false;
+	private bool charMoving = false;
 
 	public Transform rotationCenter;
 	public GameObject breakEffect;
@@ -68,6 +69,7 @@ public class InputMovementScript : MonoBehaviour
 		if (Input.GetMouseButtonDown(0))
         {
             x1 = Input.mousePosition.x;
+			charMoving = true;
 
 			float timeSinceLastClick = Time.time - lastClickTime;
 
@@ -92,30 +94,42 @@ public class InputMovementScript : MonoBehaviour
         {
             x2 = Input.mousePosition.x;
         }
+
+		if (!Input.GetMouseButtonDown(0) && touch.phase != TouchPhase.Moved && Input.touchCount == 0)
+		{
+			charMoving = false;
+		}
     }
 
 	private void FixedUpdate() 
 	{
 		float horizontalDistance = (new Vector3(x2, 0, 0) - new Vector3(x1, 0, 0)).magnitude;
 
-		// EDIT FOR DEADZONE BETWEEN ANGLES 225 and 135
-		if (x2 > x1 && horizontalDistance > minSwipeDistanceX && (transform.position.y <= 0.4f || transform.position.z >= -0.40f)) // && (transform.eulerAngles.z < 140 || transform.eulerAngles.z > 220))
+		if (charMoving)
 		{
-			if (moveSpeed < 0) moveSpeed *= -1;
-			transform.RotateAround(rotationCenter.position, -Vector3.left, moveSpeed * horizontalDistance);
-		}
-		else if (x1 > x2 && horizontalDistance > minSwipeDistanceX && (transform.position.y <= 0.4f || transform.position.z <= 0.40f)) // && (transform.eulerAngles.z > 220 || transform.eulerAngles.z < 140))
-		{
-			if (moveSpeed > 0) moveSpeed *= -1;
-			transform.RotateAround(rotationCenter.position, -Vector3.left, moveSpeed * horizontalDistance);
-		}
+			// EDIT FOR DEADZONE BETWEEN ANGLES 225 and 135
+			if (x2 > x1 && horizontalDistance > minSwipeDistanceX && (transform.position.y <= 0.4f || transform.position.z >= -0.40f)) // && (transform.eulerAngles.z < 140 || transform.eulerAngles.z > 220))
+			{
+				if (moveSpeed < 0) moveSpeed *= -1;
+				transform.RotateAround(rotationCenter.position, -Vector3.left, moveSpeed * horizontalDistance);
+			}
+			else if (x1 > x2 && horizontalDistance > minSwipeDistanceX && (transform.position.y <= 0.4f || transform.position.z <= 0.40f)) // && (transform.eulerAngles.z > 220 || transform.eulerAngles.z < 140))
+			{
+				if (moveSpeed > 0) moveSpeed *= -1;
+				transform.RotateAround(rotationCenter.position, -Vector3.left, moveSpeed * horizontalDistance);
+			}
 
-		if (jump == true)
-		{
-			animatorController.SetBool("rollStart", true);
-			animatorController.SetBool("rollJump", true);
+			if (jump == true)
+			{
+				animatorController.SetBool("rollStart", true);
+				animatorController.SetBool("rollJump", true);
 
-			timeCount = 6.0f;
+				timeCount = 6.0f;
+			}
+		}
+		else
+		{
+			transform.position = transform.position;
 		}
 	}
 }
