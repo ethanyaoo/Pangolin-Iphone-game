@@ -5,23 +5,21 @@ using UnityEngine;
 public class InputMovementScript : MonoBehaviour
 {
 
-	public float moveSpeed = 0.02f;
 	public float minSwipeDistanceX, minSwipeDistanceY;
-	private Touch touch;
-	private float x1;
-    private float x2;
 	private bool currRolling;
 	private float timeCount;
 
 	private const float doubleClickTime = 0.2f;
 	private float lastClickTime;
 	private bool jump = false;
-	private bool charMoving = false;
 
-	public Transform rotationCenter;
-	public GameObject breakEffect;
+
+	private Touch initTouch = new Touch();
+    private bool touching = false;
+
+	public float movementSpeed, computerSpeed;
+
 	[SerializeField] private Animator animatorController;
-	//private int rollHash = Animator.StringToHash("Roll");
 
 	private void Start() 
 	{
@@ -32,13 +30,7 @@ public class InputMovementScript : MonoBehaviour
 
 	private void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Collisions" && currRolling)
-        {
-            //collider.gameObject.SetActive(false);
-
-            //Instantiate(breakEffect, collider.transform.position, Quaternion.identity);
-        }
-		else if (collider.tag == "Ants" || collider.tag == "Termites" || collider.tag == "Larva")
+		if (collider.tag == "Ants" || collider.tag == "Termites" || collider.tag == "Larva")
 		{
 			animatorController.SetBool("rollStart", true);
 			animatorController.SetBool("rollJump", false);
@@ -68,9 +60,6 @@ public class InputMovementScript : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(0))
         {
-            x1 = Input.mousePosition.x;
-			charMoving = true;
-
 			float timeSinceLastClick = Time.time - lastClickTime;
 
 			if (timeSinceLastClick <= doubleClickTime && jump != true)
@@ -85,39 +74,42 @@ public class InputMovementScript : MonoBehaviour
 			lastClickTime = Time.time;
         }
 
-		if (Input.touchCount > 0)
-		{
-			touch = Input.GetTouch(0);
-		}
 
-        if (touch.phase == TouchPhase.Moved)
+		foreach (Touch touch in Input.touches)
         {
-            x2 = Input.mousePosition.x;
-        }
+            if (touch.phase == TouchPhase.Began)        //If finger touches the screen
+            {
+                if (touching == false)
+                {
+                    touching = true;
+                    initTouch = touch;
+                }
+            }
+            else if (touch.phase == TouchPhase.Moved)       //If finger moves while touching the screen
+            {
+				float deltaX = initTouch.position.x - touch.position.x;
 
-		if (!Input.GetMouseButtonDown(0) && touch.phase != TouchPhase.Moved && Input.touchCount == 0)
-		{
-			charMoving = false;
-		}
-    }
+				// Is supposed to detect the cases in which if you swipe left to go left but you reach the max height
+				if (deltaX < 0 && (transform.position.y <= 0.4f || transform.position.z <= 0.4f))
+				{
+					deltaX = 0;
+				}
+				else if (deltaX > 0 && (transform.position.y <= 0.4f || transform.position.z >= -0.4f))
+				{
+					deltaX = 0;
+				}
 
-	private void FixedUpdate() 
-	{
-		float horizontalDistance = (new Vector3(x2, 0, 0) - new Vector3(x1, 0, 0)).magnitude;
 
-		if (charMoving)
-		{
-			// EDIT FOR DEADZONE BETWEEN ANGLES 225 and 135
-			if (x2 > x1 && horizontalDistance > minSwipeDistanceX && (transform.position.y <= 0.4f || transform.position.z >= -0.40f)) // && (transform.eulerAngles.z < 140 || transform.eulerAngles.z > 220))
-			{
-				if (moveSpeed < 0) moveSpeed *= -1;
-				transform.RotateAround(rotationCenter.position, -Vector3.left, moveSpeed * horizontalDistance);
-			}
-			else if (x1 > x2 && horizontalDistance > minSwipeDistanceX && (transform.position.y <= 0.4f || transform.position.z <= 0.40f)) // && (transform.eulerAngles.z > 220 || transform.eulerAngles.z < 140))
-			{
-				if (moveSpeed > 0) moveSpeed *= -1;
-				transform.RotateAround(rotationCenter.position, -Vector3.left, moveSpeed * horizontalDistance);
-			}
+                transform.RotateAround(Vector3.zero, transform.forward, deltaX * movementSpeed * Time.deltaTime);        //Rotates the player around the x axis
+               
+
+                initTouch = touch;
+            }
+            else if (touch.phase == TouchPhase.Ended)       //If finger releases the screen
+            {
+                initTouch = new Touch();
+                touching = false;
+            }
 
 			if (jump == true)
 			{
@@ -126,10 +118,11 @@ public class InputMovementScript : MonoBehaviour
 
 				timeCount = 6.0f;
 			}
-		}
-		else
-		{
-			transform.position = transform.position;
-		}
-	}
+        }
+
+		if (Input.GetKey(KeyCode.A) && (transform.position.y <= 0.4f || transform.position.z <= 0.4f))
+            transform.RotateAround(Vector3.zero, transform.forward, computerSpeed * movementSpeed * Time.deltaTime);        //Rotates the player around the x axis
+        else if (Input.GetKey(KeyCode.D) && (transform.position.y <= 0.4f || transform.position.z >= -0.4f))
+            transform.RotateAround(Vector3.zero, transform.forward, -computerSpeed * movementSpeed * Time.deltaTime);
+    }
 }

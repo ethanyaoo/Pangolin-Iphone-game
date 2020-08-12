@@ -15,8 +15,11 @@ public class Player : MonoBehaviour
 
     private Transform world;
     private float worldRotation;
+    private Vector3 avatarOrigin;
+    private Quaternion avatarQuaternion;
 
     // Player Controls
+    public Avatar avatar;
     public GameObject pangolinGameObject;
     public float rotationVelocity;
     private float avatarRotation;
@@ -30,8 +33,12 @@ public class Player : MonoBehaviour
 
     public void gameStart()
     {        
-        healthCounter.healthCounter = 3;
-        healthCounter.shieldCounter = 1;
+        healthCounter.Restart();
+
+        avatar.transform.position = avatarOrigin;
+        avatar.transform.rotation = avatarQuaternion;
+
+        avatar.Restart();
 
         distanceTraveled = 0.0f;
         avatarRotation = 0.0f;
@@ -50,6 +57,9 @@ public class Player : MonoBehaviour
         rotator = transform.GetChild(0);
 
         gameObject.SetActive(false);
+
+        avatarOrigin = avatar.transform.position;
+        avatarQuaternion = avatar.transform.rotation;
     }
 
     private void Update() 
@@ -69,7 +79,7 @@ public class Player : MonoBehaviour
 
         pipeSystem.transform.localRotation = Quaternion.Euler(0f, 0f, systemRotation);
 
-        UpdateAvatarRotation();
+        //UpdateAvatarRotation();
 
         hud.SetValues(distanceTraveled);
     }

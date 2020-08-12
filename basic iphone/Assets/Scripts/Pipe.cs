@@ -9,12 +9,14 @@ public class Pipe : MonoBehaviour
 	public int pipeSegmentCount;
 
 	public float ringDistance;
+	public Gradient gradient;
 
     // Mesh Variables
 	private Mesh mesh;
 	private Vector3[] vertices;
 	private int[] triangles;
 	private Vector2[] uv;
+	private Color[] colors;
 
     // Pipe System
 	private float curveAngle;
@@ -61,6 +63,7 @@ public class Pipe : MonoBehaviour
 	private void SetUV()
 	{
 		uv = new Vector2[vertices.Length];
+		colors = new Color[vertices.Length];
 
 		for (int i = 0; i < vertices.Length; i += 4)
 		{
@@ -68,9 +71,13 @@ public class Pipe : MonoBehaviour
 			uv[i + 1] = Vector2.right;
 			uv[i + 2] = Vector2.up;
 			uv[i + 3] = Vector2.one;
+
+			float height = vertices[i].y;
+			colors[i] = gradient.Evaluate(height);
 		}
 
 		mesh.uv = uv;
+		mesh.colors = colors;
 	}
 
     private Vector3 GetPointOnTorus(float u, float v) 

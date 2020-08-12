@@ -10,7 +10,7 @@ public class Avatar : MonoBehaviour
 
     // Particle Systems
     public GameObject breakEffect;
-    public GameObject playerEffect;
+    public GameObject playerEffect, playerDamage;
 
     public float deathCountdown = -1f;
 
@@ -55,7 +55,6 @@ public class Avatar : MonoBehaviour
 
                 if (healthCounter.healthCounter == 1 && healthCounter.shieldCounter == 0)
                 {
-                    extraPointsDict.Clear();
                     extraPointsDict.Add("Termites", termitesCount);
                     extraPointsDict.Add("Ants", antsCount);
                     extraPointsDict.Add("Larva", larvaCount);
@@ -69,6 +68,7 @@ public class Avatar : MonoBehaviour
                 }
                 else
                 {
+                    Instantiate(playerDamage, transform.position, Quaternion.identity);
                     healthCounter.takeDamage();
                 }
             }
@@ -114,5 +114,15 @@ public class Avatar : MonoBehaviour
 
             }
         }
+    }
+
+    public void Restart()
+    {
+        extraPointsDict.Clear();
+
+        termitesCount = 0;
+        antsCount = 0;
+        larvaCount = 0;
+        closeScore = 0;
     }
 }

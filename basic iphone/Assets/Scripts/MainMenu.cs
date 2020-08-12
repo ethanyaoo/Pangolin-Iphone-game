@@ -14,16 +14,21 @@ public class MainMenu : MonoBehaviour
     public float antMultiplier, termiteMultiplier, larvaMultiplier, nearMissMult;
     private float scoreTimer = -1.0f;
     public static Dictionary<string, float> pointsDict = new Dictionary<string, float>();
+    private AudioListener audioListener;
 
     private void Start() 
     {
         hud.gameObject.SetActive(false);
 
         extraPointsText.gameObject.SetActive(false);
+
+        audioListener = gameObject.GetComponent<AudioListener>();
     }
 
     public void gameStart()
     {
+        audioListener.enabled = !audioListener.enabled;
+
         player.gameObject.SetActive(true);
         player.gameStart();
         gameObject.SetActive(false);
@@ -32,6 +37,7 @@ public class MainMenu : MonoBehaviour
 
     public void endGame(float distanceTraveled, Dictionary<string, float> extraPointsDict)
     {
+        audioListener.enabled = !audioListener.enabled;
         extraPointsText.gameObject.SetActive(true);
         pointsDict = extraPointsDict;
 

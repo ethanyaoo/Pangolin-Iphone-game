@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44632918, g: 0.490991, b: 0.54701376, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -203,7 +203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipeSystem: {fileID: 1547636895}
-  velocity: 5
+  velocity: 10
+  avatar: {fileID: 1815112040}
   pangolinGameObject: {fileID: 313471788}
   rotationVelocity: 180
   hud: {fileID: 2637277120660674863}
@@ -287,13 +288,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170076733}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: -0.263132, y: 0.65406317, z: -0.4344618, w: 0.5605408}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1.8818, y: 1.8818, z: 1.8818}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 164.137, y: -450.353, z: 120.21}
 --- !u!114 &170076736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,7 +454,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Life: 3(+1)'
+  m_Text: 'Life: 0'
 --- !u!222 &197407907
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -474,9 +475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375bdc3a824ef404aa9180bf64201b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 129194513}
   shield: {fileID: 1936573803}
-  healthCounter: 3
+  healthCounter: 1
   shieldCounter: 1
 --- !u!4 &221404519 stripped
 Transform:
@@ -578,6 +578,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pangolin_Walk
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e4e620d692a3d4a4f9572dc1635d1711, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e4e620d692a3d4a4f9572dc1635d1711, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400060, guid: e4e620d692a3d4a4f9572dc1635d1711, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.35
@@ -649,6 +657,22 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: e4e620d692a3d4a4f9572dc1635d1711, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: e4e620d692a3d4a4f9572dc1635d1711, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e4c59348f9e44c2badd81ef64217a01, type: 2}
+    - target: {fileID: 13700000, guid: e4e620d692a3d4a4f9572dc1635d1711, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 370104ffee54d44088d14f1be568ff84, type: 2}
+    - target: {fileID: 13700000, guid: e4e620d692a3d4a4f9572dc1635d1711, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: e4e620d692a3d4a4f9572dc1635d1711, type: 3}
+      propertyPath: m_SelectedEditorRenderState
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4e620d692a3d4a4f9572dc1635d1711, type: 3}
@@ -1181,8 +1205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipePrefab: {fileID: 11483510, guid: 820c56c059caa47e28b6eee68944329b, type: 3}
-  pipeCount: 30
-  emptyPipeCount: 1
+  pipeCount: 20
+  emptyPipeCount: 2
 --- !u!4 &1547636896
 Transform:
   m_ObjectHideFlags: 0
@@ -1306,6 +1330,7 @@ GameObject:
   - component: {fileID: 1621989151}
   - component: {fileID: 1621989150}
   - component: {fileID: 1621989149}
+  - component: {fileID: 1621989154}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -1416,6 +1441,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!81 &1621989154
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621989148}
+  m_Enabled: 1
 --- !u!1 &1683228018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,9 +1622,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthCounter: {fileID: 197407908}
   pangolinObject: {fileID: 313471788}
-  breakEffect: {fileID: 5568561782525516099, guid: 2a009c44c93964ade9da674fd0dcfcbe,
+  breakEffect: {fileID: 9030701586498290974, guid: 2a009c44c93964ade9da674fd0dcfcbe,
     type: 3}
   playerEffect: {fileID: 319431866018826356, guid: 79aeef6fe70474ad3be7d4cac321ad1d,
+    type: 3}
+  playerDamage: {fileID: 4584346558610097800, guid: 3cf7657dfc52f4cec9ff1c34e4407242,
     type: 3}
   deathCountdown: -1
 --- !u!114 &1815112041
@@ -1609,7 +1644,6 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3177303118354736122, guid: 9f16b5b37212542aab9faf9fb4cce73a,
     type: 3}
   barrelEnd: {fileID: 58414404}
-  firingTarget: {fileID: 221404519}
   firingDelay: 0.5
   firingVelocity: 200
 --- !u!114 &1815112042
@@ -1624,12 +1658,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f184e60adae4bff9d92f86937cea7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.02
   minSwipeDistanceX: 0
   minSwipeDistanceY: 0
-  rotationCenter: {fileID: 638025733}
-  breakEffect: {fileID: 5568561782525516099, guid: 2a009c44c93964ade9da674fd0dcfcbe,
-    type: 3}
+  movementSpeed: -2
+  computerSpeed: 30
   animatorController: {fileID: 1815112038}
 --- !u!1 &1849251295
 GameObject:

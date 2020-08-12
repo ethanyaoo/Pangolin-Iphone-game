@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class HealthCounter : MonoBehaviour
 {
-    //public GameObject lifeObj1, lifeObj2, lifeObj3;
-    public Player player;
     public GameObject shield;
 
     private Text lifeDisplayText;
@@ -14,9 +12,20 @@ public class HealthCounter : MonoBehaviour
     public int healthCounter = 3;
     public int shieldCounter = 0;
 
+    private int resHC, resSC;
+
     private void Start() 
     {
         lifeDisplayText = GetComponent<Text>();
+
+        resHC = healthCounter;
+        resSC = shieldCounter;
+    }
+
+    public void Restart()
+    {
+        healthCounter = resHC;
+        shieldCounter = resSC;
     }
 
     public void takeDamage()

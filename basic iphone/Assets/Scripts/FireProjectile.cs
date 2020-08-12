@@ -8,7 +8,6 @@ public class FireProjectile : MonoBehaviour
     // Projectile Objects
 	public Rigidbody projectilePrefab;
 	public Transform barrelEnd;
-    public Transform firingTarget;
 
     // Projectile Variables
     private float firingDelayCounter; // Delay Count
