@@ -28,10 +28,45 @@ public class Avatar : MonoBehaviour
     private enum avatar {none, close, collide};
     private avatar currBehavior = 0;
 
+
+    // Camera Movement
+
+    public CameraShake cameraShake;
+    public float shakeDuration, shakeMagnitude;
+
+    // Audio Sources
+    public AudioClip audioPlayerDie;
+    public AudioClip audioPlayerHit;
+    public AudioClip audioCollisionTermite;
+    public AudioClip audioCollisionAnt;
+    public AudioClip audioCollisionLarva;
+    private AudioSource audioSrcPlayerDie;
+    private AudioSource audioSrcPlayerHit;
+    private AudioSource audioSrcCollisionTermite;
+    private AudioSource audioSrcCollisionAnt;
+    private AudioSource audioSrcCollisionLarva;
+
     private void Awake() 
     {
         player = transform.root.GetComponent<Player>();
 
+        audioSrcPlayerDie = AddAudio(false, false, 0.3f);
+        audioSrcPlayerHit = AddAudio(false, false, 0.3f);
+        audioSrcCollisionTermite = AddAudio(false, false, 0.3f);
+        audioSrcCollisionAnt = AddAudio(false, false, 0.3f);
+        audioSrcCollisionLarva = AddAudio(false, false, 0.3f);
+
+    }
+
+    public AudioSource AddAudio (bool loop, bool playAwake, float volume)
+    {
+        AudioSource newAudio = gameObject.GetComponent<AudioSource>();
+
+        newAudio.loop = loop;
+        newAudio.playOnAwake = playAwake;
+        newAudio.volume = volume;
+
+        return newAudio;
     }
     
     private void OnTriggerExit(Collider collider) 
@@ -53,12 +88,19 @@ public class Avatar : MonoBehaviour
             {
                 if (closeScore > 0) closeScore--;
 
+                StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
+
                 if (healthCounter.healthCounter == 1 && healthCounter.shieldCounter == 0)
                 {
                     extraPointsDict.Add("Termites", termitesCount);
                     extraPointsDict.Add("Ants", antsCount);
                     extraPointsDict.Add("Larva", larvaCount);
                     extraPointsDict.Add("Close", closeScore);
+
+                    audioSrcPlayerDie.clip = audioPlayerDie;
+                    audioSrcPlayerDie.Play();
+
+                    Handheld.Vibrate();
 
                     pangolinObject.gameObject.SetActive(false);
 
@@ -68,6 +110,8 @@ public class Avatar : MonoBehaviour
                 }
                 else
                 {
+                    audioSrcPlayerHit.clip = audioPlayerHit;
+                    audioSrcPlayerHit.Play();
                     Instantiate(playerDamage, transform.position, Quaternion.identity);
                     healthCounter.takeDamage();
                 }
@@ -84,13 +128,19 @@ public class Avatar : MonoBehaviour
             switch(collider.tag)
             {
                 case "Termites":
+                    audioSrcCollisionTermite.clip = audioCollisionTermite;
+                    audioSrcCollisionTermite.Play();
                     healthCounter.gainHealth();
                     termitesCount += 1.0f;
                     break;
                 case "Ants":
+                    audioSrcCollisionAnt.clip = audioCollisionAnt;
+                    audioSrcCollisionAnt.Play();
                     antsCount += 1.0f;
                     break;
                 case "Larva":
+                    audioSrcCollisionLarva.clip = audioCollisionLarva;
+                    audioSrcCollisionLarva.Play();
                     healthCounter.gainShield();
                     larvaCount += 1.0f;
                     break;

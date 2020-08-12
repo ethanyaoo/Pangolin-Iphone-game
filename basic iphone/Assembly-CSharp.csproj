@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\AssetsList.cs" />
      <Compile Include="Assets\Scripts\Avatar.cs" />
+     <Compile Include="Assets\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Scripts\Destroy.cs" />
      <Compile Include="Assets\Scripts\FireProjectile.cs" />
      <Compile Include="Assets\Scripts\HealthCounter.cs" />
