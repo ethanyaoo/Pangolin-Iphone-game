@@ -77,7 +77,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  minCurveRadius: 358
+  minCurveRadius: 300
   maxCurveRadius: 360
   minCurveSegmentCount: 10
   maxCurveSegmentCount: 12

@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     public HUD hud; 
     public MainMenu mainMenu;
     public HealthCounter healthCounter;
-    private float timeTraveled;
+    private float timeTraveled, speedUpDistance;
 
     public void gameStart()
     {        
@@ -65,7 +65,10 @@ public class Player : MonoBehaviour
     private void Update() 
     {
         float delta = velocity * Time.deltaTime;
+
         distanceTraveled += delta;
+        speedUpDistance += delta;
+
         timeTraveled += Time.deltaTime;
         systemRotation += delta * deltaToRotation;
 
@@ -82,6 +85,15 @@ public class Player : MonoBehaviour
         //UpdateAvatarRotation();
 
         hud.SetValues(distanceTraveled);
+    }
+
+    private void FixedUpdate() 
+    {
+        if (speedUpDistance >= 250)
+        {
+            velocity += 1.0f;
+            speedUpDistance = 0.0f;
+        }
     }
 
     // Rotates whole tunnel
@@ -127,4 +139,12 @@ public class Player : MonoBehaviour
     {
         timeTraveled -= 3.0f;
     }
+
+    public float SpeedUpDistance
+    {
+        get
+        {
+            return speedUpDistance;
+        }
+    } 
 }

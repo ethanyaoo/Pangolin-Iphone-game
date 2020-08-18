@@ -99,6 +99,17 @@ public class InputMovementScript : MonoBehaviour
 					deltaX = 0;
 				}
 
+				if (deltaX > 0)
+				{
+					animatorController.SetBool("moveLeft", false);
+					animatorController.SetBool("moveRight", true);
+				}
+				else if (deltaX < 0)
+				{
+					animatorController.SetBool("moveRight", false);
+					animatorController.SetBool("moveLeft", true);
+				}
+
                 transform.RotateAround(Vector3.zero, transform.forward, deltaX * movementSpeed * Time.deltaTime);        //Rotates the player around the x axis
                
 
@@ -108,6 +119,9 @@ public class InputMovementScript : MonoBehaviour
             {
                 initTouch = new Touch();
                 touching = false;
+
+				animatorController.SetBool("moveLeft", false);
+				animatorController.SetBool("moveRight", false);
             }
 
 			if (jump == true)
@@ -120,8 +134,18 @@ public class InputMovementScript : MonoBehaviour
         }
 
 		if (Input.GetKey(KeyCode.A) && (transform.position.y <= 0.4f || transform.position.z <= 0.4f))
-            transform.RotateAround(Vector3.zero, transform.forward, computerSpeed * movementSpeed * Time.deltaTime);        //Rotates the player around the x axis
+		{
+			transform.RotateAround(Vector3.zero, transform.forward, computerSpeed * movementSpeed * Time.deltaTime);        //Rotates the player around the x axis
+			
+			animatorController.SetBool("moveLeft", false);
+			animatorController.SetBool("moveRight", true);
+		}
         else if (Input.GetKey(KeyCode.D) && (transform.position.y <= 0.4f || transform.position.z >= -0.4f))
-            transform.RotateAround(Vector3.zero, transform.forward, -computerSpeed * movementSpeed * Time.deltaTime);
+		{
+			transform.RotateAround(Vector3.zero, transform.forward, -computerSpeed * movementSpeed * Time.deltaTime);
+
+			animatorController.SetBool("moveRight", false);
+			animatorController.SetBool("moveLeft", true);
+		}
     }
 }

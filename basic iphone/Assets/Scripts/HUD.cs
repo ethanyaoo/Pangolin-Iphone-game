@@ -12,6 +12,6 @@ public class HUD : MonoBehaviour
     {
         //displayDistance.text = ((int)(distanceTraveled * 1f)).ToString();
 
-        displayDistance.text = ((float)(distanceTraveled * 1f)).ToString();
+        displayDistance.text = ((int)(distanceTraveled)).ToString();
     }
 }

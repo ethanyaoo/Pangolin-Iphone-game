@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PipeSystem : MonoBehaviour 
 {
-
+    public Player player;
 	public Pipe pipePrefab;
     
 	public int pipeCount;
 
     public int emptyPipeCount;
+
+    private float minCurveAngle, maxCurveAngle;
 
 	private Pipe[] pipes;
 
@@ -29,6 +31,9 @@ public class PipeSystem : MonoBehaviour
 			Pipe pipe = pipes[i] = Instantiate<Pipe>(pipePrefab);
 			pipe.transform.SetParent(transform, false);
 		}
+
+        minCurveAngle = pipes[0].minCurveRadius;
+        maxCurveAngle = pipes[0].maxCurveRadius;
 	}
 
     public Pipe SetupFirstPipe()
@@ -54,9 +59,14 @@ public class PipeSystem : MonoBehaviour
     {
         ShiftPipes();
         AlignNextPipeWithOrigin();
-
+ 
         pipes[pipes.Length - 1].Generate();
         pipes[pipes.Length - 1].AlignWith(pipes[pipes.Length - 2]);
+
+        pipes[pipes.Length - 1].minCurveRadius = minCurveAngle;
+        pipes[pipes.Length - 1].maxCurveRadius = maxCurveAngle;
+
+        print(pipes[pipes.Length - 1].minCurveRadius + " " + pipes[pipes.Length - 1].maxCurveRadius);
 
         transform.localPosition = new Vector3(0f, -pipes[1].CurveRadius);
         return pipes[1];
@@ -94,6 +104,19 @@ public class PipeSystem : MonoBehaviour
             if (i != 1)
             {  
                 pipes[i].transform.SetParent(transform);
+            }
+        }
+    }
+
+    private void FixedUpdate() 
+    {
+        if (player.SpeedUpDistance >= 250 && minCurveAngle >= 20)
+        {
+            minCurveAngle -= 10;
+
+            if (maxCurveAngle >= 80)
+            {
+                maxCurveAngle -= 10;
             }
         }
     }

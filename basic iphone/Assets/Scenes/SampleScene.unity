@@ -1217,6 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8118acb7df544ea785e385e75892074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 129194513}
   pipePrefab: {fileID: 11483510, guid: 820c56c059caa47e28b6eee68944329b, type: 3}
   pipeCount: 20
   emptyPipeCount: 2
@@ -2008,7 +2009,7 @@ PrefabInstance:
     - target: {fileID: 1844408183196896448, guid: 6e021a05ba7fe4f7fa47ddb44dd2fde4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -491
+      value: -526
       objectReference: {fileID: 0}
     - target: {fileID: 1844408183196896448, guid: 6e021a05ba7fe4f7fa47ddb44dd2fde4,
         type: 3}
@@ -2060,6 +2061,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1844408183196896448, guid: 6e021a05ba7fe4f7fa47ddb44dd2fde4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1844408183196896451, guid: 6e021a05ba7fe4f7fa47ddb44dd2fde4,
         type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -2083,6 +2089,11 @@ PrefabInstance:
     - target: {fileID: 1844408183196896451, guid: 6e021a05ba7fe4f7fa47ddb44dd2fde4,
         type: 3}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844408183196896451, guid: 6e021a05ba7fe4f7fa47ddb44dd2fde4,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4095546897786462755, guid: 6e021a05ba7fe4f7fa47ddb44dd2fde4,
