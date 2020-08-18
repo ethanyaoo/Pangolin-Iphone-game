@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     public HUD hud; 
     public MainMenu mainMenu;
     public HealthCounter healthCounter;
-    private float timeTraveled, speedUpDistance;
+    private float timeTraveled, speedUpDistance, baseVelocity;
 
     public void gameStart()
     {        
@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
 
         avatar.transform.position = avatarOrigin;
         avatar.transform.rotation = avatarQuaternion;
+
+        velocity = baseVelocity;
 
         avatar.Restart();
 
@@ -57,6 +59,8 @@ public class Player : MonoBehaviour
         rotator = transform.GetChild(0);
 
         gameObject.SetActive(false);
+
+        baseVelocity = velocity;
 
         avatarOrigin = avatar.transform.position;
         avatarQuaternion = avatar.transform.rotation;

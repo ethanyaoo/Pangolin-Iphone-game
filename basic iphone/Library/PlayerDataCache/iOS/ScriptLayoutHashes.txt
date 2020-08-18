@@ -1,6 +1,6 @@
 iOS
 PlayerPath?
-/Users/ethanyao/Documents/GitHub/Pangolin Iphone game/basic iphone/XcodeBuilds/iOS5.1
+/Users/ethanyao/Documents/GitHub/Pangolin Iphone game/basic iphone/XcodeBuilds/iOS5.21
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
@@ -204,7 +204,7 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 397cb593aa905360d4e24405f9ed07b2 Assembly-CSharp.dll:.Example_3_Mask_Box
 b9c6f7358c6c4a116c264d7c7f6f08b1 Unity.RenderPipelines.Lightweight.Runtime.dll:UnityEngine.Experimental.Rendering.LightweightPipeline.LightweightRenderPipelineEditorResources
-95de0b67a8a1b47e7f7551d04b387655 Assembly-CSharp.dll:.PipeSystem
+dbc856eda9ab0b808d7e9293b8effdd9 Assembly-CSharp.dll:.PipeSystem
 3b760e6526e13f7504f59e210145899a Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.PipeItem
 507174d46dacbc5fe45e28485db5dd1e Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton

@@ -11,8 +11,9 @@ public class MainMenu : MonoBehaviour
     public HUD hud;
     private float endTotalScore = -1;
     private float goalScore, antScore, termiteScore, larvaScore;
+    private float goalRange, antRange, termiteRange, larvaRange;
+    private float timeDiffUpdate;
     public float antMultiplier, termiteMultiplier, larvaMultiplier, nearMissMult;
-    private float scoreTimer = -1.0f;
     public static Dictionary<string, float> pointsDict = new Dictionary<string, float>();
     private AudioListener audioListener;
 
@@ -41,8 +42,6 @@ public class MainMenu : MonoBehaviour
         extraPointsText.gameObject.SetActive(true);
         pointsDict = extraPointsDict;
 
-        scoreTimer = 2.25f;
-
         scoreCount.text = ((int)(distanceTraveled * 1.0f)).ToString();
 
         endTotalScore = distanceTraveled * 1.0f;
@@ -61,6 +60,11 @@ public class MainMenu : MonoBehaviour
         termiteScore = endTotalScore + (float)(extraPointsDict["Ants"] * antMultiplier)
                                         + (float)(extraPointsDict["Termites"] * termiteMultiplier);
 
+        goalRange = goalScore - larvaScore;
+        larvaRange = larvaScore - antScore;
+        antRange = antScore - endTotalScore;
+        termiteRange = termiteScore - antScore;
+
         hud.gameObject.SetActive(false);
         gameObject.SetActive(true);
     }
@@ -70,12 +74,11 @@ public class MainMenu : MonoBehaviour
     {
         if (endTotalScore > 0)
         {
-            scoreTimer -= Time.deltaTime;
+            timeDiffUpdate = 200;
 
             if (endTotalScore > goalScore)
             {
                 endTotalScore = goalScore;
-                scoreTimer = -0.5f;
             }
             else if (endTotalScore < antScore)
             {
@@ -83,7 +86,9 @@ public class MainMenu : MonoBehaviour
 
                 if (endTotalScore < antScore)
                 {
-                    endTotalScore += 5.0f;
+                    float addDiff = Mathf.Round(antRange / timeDiffUpdate);
+
+                    endTotalScore += addDiff;
                 }
             }
             else if (endTotalScore < termiteScore)
@@ -93,7 +98,9 @@ public class MainMenu : MonoBehaviour
 
                 if (endTotalScore < termiteScore)
                 {
-                    endTotalScore += 5.0f;
+                    float addDiff = Mathf.Round(termiteRange / timeDiffUpdate);
+
+                    endTotalScore += addDiff;
                 }
             }
             else if (endTotalScore < larvaScore)
@@ -104,12 +111,16 @@ public class MainMenu : MonoBehaviour
 
                 if (endTotalScore < goalScore)
                 {
-                    endTotalScore += 5.0f;
+                    float addDiff = Mathf.Round(larvaRange / timeDiffUpdate);
+
+                    endTotalScore += addDiff;
                 }
             }
             else if (endTotalScore <= goalScore)
             {
-                if (endTotalScore != goalScore) endTotalScore += 5.0f;
+                float addDiff = Mathf.Round(goalRange / timeDiffUpdate);
+
+                if (endTotalScore != goalScore) endTotalScore += addDiff;
 
                 extraPointsText.text = "Ants Collected: " + ((int)(pointsDict["Ants"] * 1.0f)).ToString()
                         + "\n\n" + "Termites Collected: " + ((int)(pointsDict["Termites"] * 1.0f)).ToString() 

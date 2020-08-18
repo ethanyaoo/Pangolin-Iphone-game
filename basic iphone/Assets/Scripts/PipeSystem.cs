@@ -11,7 +11,7 @@ public class PipeSystem : MonoBehaviour
 
     public int emptyPipeCount;
 
-    private float minCurveAngle, maxCurveAngle;
+    private float minCurveAngle, maxCurveAngle, baseMinCurveAngle, baseMaxCurveAngle;
 
 	private Pipe[] pipes;
 
@@ -34,6 +34,9 @@ public class PipeSystem : MonoBehaviour
 
         minCurveAngle = pipes[0].minCurveRadius;
         maxCurveAngle = pipes[0].maxCurveRadius;
+
+        baseMinCurveAngle = pipes[0].minCurveRadius;
+        baseMaxCurveAngle = pipes[0].maxCurveRadius;
 	}
 
     public Pipe SetupFirstPipe()
@@ -52,6 +55,10 @@ public class PipeSystem : MonoBehaviour
         AlignNextPipeWithOrigin();
 
         transform.localPosition = new Vector3(0f, -pipes[1].CurveRadius);
+
+        minCurveAngle = baseMinCurveAngle;
+        maxCurveAngle = baseMaxCurveAngle;
+        
         return pipes[1];
     }
 
@@ -65,8 +72,6 @@ public class PipeSystem : MonoBehaviour
 
         pipes[pipes.Length - 1].minCurveRadius = minCurveAngle;
         pipes[pipes.Length - 1].maxCurveRadius = maxCurveAngle;
-
-        print(pipes[pipes.Length - 1].minCurveRadius + " " + pipes[pipes.Length - 1].maxCurveRadius);
 
         transform.localPosition = new Vector3(0f, -pipes[1].CurveRadius);
         return pipes[1];

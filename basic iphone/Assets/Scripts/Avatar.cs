@@ -89,6 +89,7 @@ public class Avatar : MonoBehaviour
                 if (closeScore > 0) closeScore--;
 
                 StartCoroutine(cameraShake.Shake(shakeDuration, shakeMagnitude));
+                Handheld.Vibrate();
 
                 if (healthCounter.healthCounter == 1 && healthCounter.shieldCounter == 0)
                 {
@@ -99,8 +100,6 @@ public class Avatar : MonoBehaviour
 
                     audioSrcPlayerDie.clip = audioPlayerDie;
                     audioSrcPlayerDie.Play();
-
-                    Handheld.Vibrate();
 
                     pangolinObject.gameObject.SetActive(false);
 
