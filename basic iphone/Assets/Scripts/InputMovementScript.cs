@@ -90,15 +90,14 @@ public class InputMovementScript : MonoBehaviour
 				float deltaX = initTouch.position.x - touch.position.x;
 
 				// Is supposed to detect the cases in which if you swipe left to go left but you reach the max height
-				if (deltaX < 0 && (transform.position.y <= 0.4f || transform.position.z <= 0.4f))
+				if (deltaX > 0 && (transform.position.y >= 0.4f && transform.position.z > 0.4f))
 				{
 					deltaX = 0;
 				}
-				else if (deltaX > 0 && (transform.position.y <= 0.4f || transform.position.z >= -0.4f))
+				else if (deltaX < 0 && (transform.position.y >= 0.4f && transform.position.z < -0.4f))
 				{
 					deltaX = 0;
 				}
-
 
                 transform.RotateAround(Vector3.zero, transform.forward, deltaX * movementSpeed * Time.deltaTime);        //Rotates the player around the x axis
                

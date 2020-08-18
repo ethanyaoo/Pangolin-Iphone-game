@@ -1682,7 +1682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSwipeDistanceX: 0
   minSwipeDistanceY: 0
-  movementSpeed: -2
+  movementSpeed: -3
   computerSpeed: 30
   animatorController: {fileID: 1815112038}
 --- !u!82 &1815112043
