@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: WireframeMaterial
   m_Shader: {fileID: 4800000, guid: 16713dc5228b8834da99da3cd0f4fb55, type: 3}
-  m_ShaderKeywords: V_WIRE_FRESNEL_ON
+  m_ShaderKeywords: V_WIRE_FRESNEL_ON V_WIRE_SOURCE_BAKED
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -102,7 +102,7 @@ Material:
     - _V_WIRE_Reflection_Roughness: 0.3
     - _V_WIRE_Reflection_Strength: 0.5
     - _V_WIRE_RenderingOptions_UnlitEnumID: 0
-    - _V_WIRE_Size: 1
+    - _V_WIRE_Size: 2
     - _V_WIRE_Source_Options: 0
     - _V_WIRE_Tag: 0
     - _V_WIRE_Title_M_Options: 0

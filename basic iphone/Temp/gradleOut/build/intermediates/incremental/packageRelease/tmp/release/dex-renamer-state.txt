@@ -1,4 +1,0 @@
-#Tue Aug 18 14:16:59 EDT 2020
-base.0=/Users/ethanyao/Documents/GitHub/Pangolin Iphone game/basic iphone/Temp/gradleOut/build/intermediates/transforms/dexMerger/release/0
-path.0=classes.dex
-renamed.0=classes.dex

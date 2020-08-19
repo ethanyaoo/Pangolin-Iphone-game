@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public Player player;
     public Text scoreCount;
     public Text extraPointsText;
+    public GameObject healthCounter;
     public HUD hud;
     private float endTotalScore = -1;
     private float goalScore, antScore, termiteScore, larvaScore;
@@ -74,36 +75,42 @@ public class MainMenu : MonoBehaviour
     {
         if (endTotalScore > 0)
         {
-            timeDiffUpdate = 200;
+            timeDiffUpdate = 100;
 
             if (endTotalScore > goalScore)
             {
                 endTotalScore = goalScore;
             }
-            else if (endTotalScore < antScore)
+            else if (endTotalScore < antScore && antScore != 0)
             {
                 extraPointsText.text = "Ants Collected: " + ((int)(pointsDict["Ants"] * 1.0f)).ToString();
 
                 if (endTotalScore < antScore)
                 {
+                    if (antRange < timeDiffUpdate) timeDiffUpdate = 10;
+                    else timeDiffUpdate = 100;
+
                     float addDiff = Mathf.Round(antRange / timeDiffUpdate);
 
                     endTotalScore += addDiff;
                 }
             }
-            else if (endTotalScore < termiteScore)
+            else if (endTotalScore < termiteScore && termiteScore != 0)
             {
                 extraPointsText.text = "Ants Collected: " + ((int)(pointsDict["Ants"] * 1.0f)).ToString()
                     + "\n\n" + "Termites Collected: " + ((int)(pointsDict["Termites"] * 1.0f)).ToString();
 
                 if (endTotalScore < termiteScore)
                 {
+                    if (termiteRange < timeDiffUpdate) timeDiffUpdate = 10;
+                    else timeDiffUpdate = 100;
+
                     float addDiff = Mathf.Round(termiteRange / timeDiffUpdate);
 
                     endTotalScore += addDiff;
                 }
             }
-            else if (endTotalScore < larvaScore)
+            else if (endTotalScore < larvaScore && larvaScore != 0)
             {
                 extraPointsText.text = "Ants Collected: " + ((int)(pointsDict["Ants"] * 1.0f)).ToString()
                         + "\n\n" + "Termites Collected: " + ((int)(pointsDict["Termites"] * 1.0f)).ToString() 
@@ -111,6 +118,9 @@ public class MainMenu : MonoBehaviour
 
                 if (endTotalScore < goalScore)
                 {
+                    if (larvaRange < timeDiffUpdate) timeDiffUpdate = 10;
+                    else timeDiffUpdate = 100;
+
                     float addDiff = Mathf.Round(larvaRange / timeDiffUpdate);
 
                     endTotalScore += addDiff;
